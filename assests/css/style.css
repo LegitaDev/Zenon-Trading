@@ -17,6 +17,10 @@
 
 /* EXTRA VARIABLES */
 
+.subWord {
+    color: var(--secondaryColor);
+}
+
 
 /* BUTTONS */
 
@@ -103,6 +107,7 @@
         position: relative;
     }
     .about-photo {
+        border: black 1px solid;
         position: relative;
     }
 }
@@ -110,6 +115,41 @@
 .about-info .about-sub-title,
 .about-paragraph {
     margin-bottom: 3rem;
+}
+
+
+/* SERVICE */
+
+.service-content {
+    color: var(--mainWhite);
+    margin: 3rem auto 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    width: 65vw;
+}
+
+.service-icon {
+    border-bottom: 5px solid var(--secondaryColor);
+    border-top: 5px solid var(--secondaryColor);
+    border-radius: 30px;
+    font-size: 2rem;
+    padding: 0.5rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.service-text {
+    width: 20vw;
+    margin-bottom: 3rem;
+}
+
+.service-info {
+    flex: 0 0 calc(50% - 2rem);
+    height: 30vh;
+}
+
+.service-info .btn-white {
+    margin-top: 3rem;
 }
 
 
@@ -128,7 +168,7 @@ a {
 /* FIRST BANNER */
 
 .first {
-    height: 100vh;
+    height: calc(100vh - 4rem);
     background: linear-gradient(rgba(0, 103, 134, 0.4), rgba(0, 0, 0, 0.5)), url("../images/tradingBanner.jpg") center/cover no-repeat fixed;
     display: flex;
     justify-content: center;
@@ -153,8 +193,149 @@ a {
     width: 50%;
     letter-spacing: var(--mainSpacing);
     border-left: 3px cyan solid;
+    background-color: rgba(0, 0, 0, 0.1);
     padding-left: 5px;
     font-size: 1.2rem;
     margin: 0 auto;
     margin-bottom: 2rem;
+}
+
+
+/* NAVBAR */
+
+.nav-icons {
+    display: none;
+}
+
+.nav-logo {
+    text-shadow: -10px 10px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+}
+
+.nav-header {
+    color: var(--secondaryColor);
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: var(--secondaryColor);
+    cursor: pointer;
+    transition: var(--mainTransition);
+}
+
+.nav-toggle:hover {
+    transform: scale(1.2);
+}
+
+.nav-link {
+    display: block;
+    padding: 1rem 2rem;
+    color: var(--mainWhite);
+    text-transform: capitalize;
+    font-weight: bold;
+    letter-spacing: var(--mainSpacing);
+    transition: var(--mainTransition);
+}
+
+.nav-link:hover {
+    color: var(--secondaryColor);
+    background: var(--mainWhite);
+    padding-left: 2.5rem;
+}
+
+@media screen and (min-width:996px) {
+    .nav-toggle {
+        display: none;
+    }
+    .nav-links {
+        display: flex;
+        height: auto;
+    }
+    .nav-icons {
+        display: flex;
+    }
+    .nav-center {
+        max-width: 1270px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-header {
+        padding: 0;
+    }
+    .nav-link {
+        padding: 0;
+        margin-right: 1rem;
+    }
+    .nav-link:hover {
+        padding: 0;
+        background: transparent;
+    }
+    .main-navbar {
+        padding: 1rem 2rem;
+    }
+    .nav-center {
+        width: 100%;
+    }
+    .nav-icon {
+        margin-right: 0.7rem;
+        color: var(--mainWhite);
+        font-size: 1.5rem;
+        transition: var(--mainTransition);
+    }
+    .nav-icon:hover {
+        color: var(--secondaryColor);
+        transform: translateY(-10%)
+    }
+}
+
+
+/* FOOTER */
+
+.main-footer {
+    background: linear-gradient(rgba(0, 146, 139, 0.5), rgba(0, 0, 0, 0.7));
+    color: var(--mainWhite);
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.footer-links,
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--mainWhite);
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    letter-spacing: var(--mainSpacing);
+    transition: var(--mainTransition);
+}
+
+.footer-link:hover {
+    color: var(--secondaryColor);
+}
+
+.footer-icon {
+    color: var(--mainWhite);
+    font-size: 1.9rem;
+    margin-right: 1rem;
+    transition: var(--mainTransition);
+}
+
+.footer-icon:hover {
+    color: var(--secondaryColor);
+    transform: translateY(-10%);
 }
