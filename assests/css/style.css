@@ -41,6 +41,24 @@
     border-color: var(--secondaryColor);
 }
 
+.btn-black {
+    text-transform: uppercase;
+    background-color: black;
+    color: var(--mainWhite);
+    letter-spacing: var(--mainSpacing);
+    border: 2px solid gray;
+    padding: 0.9rem 1.6rem;
+    display: inline-block;
+    font-weight: bold;
+    transition: var(--mainTransition);
+    border-radius: 20px;
+}
+
+.btn-black:hover {
+    color: var(--secondaryColor);
+    border-color: var(--secondaryColor);
+}
+
 
 /* SECTIONS */
 
@@ -168,7 +186,7 @@ a {
 /* FIRST BANNER */
 
 .first {
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 108px);
     background: linear-gradient(rgba(0, 103, 134, 0.4), rgba(0, 0, 0, 0.5)), url("../images/tradingBanner.jpg") center/cover no-repeat fixed;
     display: flex;
     justify-content: center;
@@ -203,6 +221,10 @@ a {
 
 /* NAVBAR */
 
+.main-navbar {
+    background: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+}
+
 .nav-icons {
     display: none;
 }
@@ -217,6 +239,8 @@ a {
     padding: 1rem 2rem;
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-toggle {
@@ -297,6 +321,29 @@ a {
 }
 
 
+/* 280 */
+
+@media screen and (max-width:996px) {
+    .nav-links {
+        height: 0;
+        overflow: hidden;
+        transition: var(--mainTransition);
+    }
+    .show-links {
+        height: 392px;
+    }
+}
+
+.nav-log {
+    color: var(--secondaryColor);
+}
+
+.nav-log:hover {
+    color: var(--mainWhite);
+    transform: translateY(-30%);
+}
+
+
 /* FOOTER */
 
 .main-footer {
@@ -338,4 +385,53 @@ a {
 .footer-icon:hover {
     color: var(--secondaryColor);
     transform: translateY(-10%);
+}
+
+
+/* LOGIN PAGE */
+
+.main-form {
+    height: calc(100vh - 108px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-form {
+    border-left: 30px rgb(0, 86, 121) solid;
+    border-right: 30px rgb(0, 86, 121) solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 25vw;
+    height: 65vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 200px 0 200px;
+}
+
+.second-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px;
+    background: transparent;
+    border: none;
+    border-bottom: rgb(185, 83, 0) 3px solid;
+    color: var(--mainWhite);
+}
+
+.second-form input:focus {
+    background-color: transparent;
+    outline: none;
+}
+
+.second-form label {
+    color: var(--mainWhite);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main-form .second-form .btn-black {
+    margin-left: auto;
+    margin-top: 2rem;
 }

@@ -7,22 +7,35 @@ include_once "config/config.php";
 <link rel="stylesheet" href="<?php echo URLROOT; ?>assests/css/style.css">
 
 
-<!-- Nav Bar -->
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="mainpage.php">Zenon Trading</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="mainpage.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
+<!-- NAVBAR -->
+<nav class="main-navbar">
+    <div class="nav-center">
+        <div class="nav-header">
+            <p class="nav-logo">Zenon Trading</p>
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-label="nav toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+            <a href="mainpage.php" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#" class="nav-link">FAQ</a>
+            <a href="#" class="nav-link">Support</a>
+
+        </div>
+        <div class="nav-icons">
+            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-github-square"></i></a>
+
+
+        </div>
+        <div class="nav-links">
+            <a href="login.php" class="nav-link nav-log">Login</a>
+            <a href="register.php" class="nav-link nav-log">Register</a>
         </div>
     </div>
-</nav> -->
+</nav>
