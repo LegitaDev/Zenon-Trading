@@ -176,6 +176,7 @@
 body {
     font-family: var(--textFontTwo);
     background-color: var(--primaryColor);
+    color: var(--mainWhite);
 }
 
 a {
@@ -395,6 +396,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url("../images/registerBackground.jpg") center/cover fixed no-repeat;
 }
 
 .second-form {

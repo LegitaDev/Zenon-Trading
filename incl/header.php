@@ -1,5 +1,11 @@
 <?php
 include_once "config/config.php";
+
+spl_autoload_register(function ($class) {
+    require_once ("./incl/classes/" . $class . ".class.php");
+});
+
+session_start();
 ?>
 
 <link rel="stylesheet" href="<?php echo URLROOT; ?>assests/css/bootstrap.min.css">
