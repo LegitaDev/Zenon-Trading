@@ -22,25 +22,25 @@
         }
         if (empty($username) || empty($email) || empty($password) || empty($passwordCheck)) {
             $user->errors[] = "Please fill up the inputs.";
-        }
-
-        //password allowed length
-        if (strlen($password) < 8) {
+        } elseif (strlen($password) < 2) { //password allowed length
             $user->errors[] = "Password should be more than 8 characters";
         } elseif ($password !== $passwordCheck) {
             $user->errors[] = "Passwords don't match, try again";
         }
 
+        // Check above errors
+
         if (empty($user->errors)) {
+            // Creating user
             $register = $user->register($username, $email, $password);
 
             if ($register == false) {
-                $user->displayError();
+                echo $user->displayError();
             } else {
-                $user->displaySuccess();
+                echo $user->displaySuccess();
             }
         } else {
-            $user->displayError();
+            echo $user->displayError();
         }
     }
     ?>

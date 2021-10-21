@@ -44,28 +44,47 @@ class User
         $this->database->bind(":email", $email);
         $this->database->bind(":password", $password);
 
-        if($this->database->execute()){
+        if ($this->database->execute()) {
             $this->success[] = "User has been created.";
             return true;
-        }else{
+        } else {
             $this->error[] = "Please contact an Admin.";
             return false;
         }
-
     }
 
-    // Display Error
+    // Display Errors
     function displayError()
     {
-        echo "<pre>";
-        var_dump($this->errors);
-        echo "</pre>";
+
+        $counter = count($this->errors);
+
+        if ($counter > 0) {
+            $result = "<ul>";
+            for ($i = 0; $i < $counter; $i++) {
+                $result .= "<li>" . $this->errors[$i] . "</li>";
+            }
+            $result .= "</ul>";
+        } else {
+            return "no errors";
+        }
+        return $result;
     }
+
     // Display Success
     function displaySuccess()
     {
-        echo "<pre>";
-        var_dump($this->success);
-        echo "</pre>";
+        $counter = count($this->success);
+
+        if ($counter > 0) {
+            $result = "<ul>";
+            for ($i = 0; $i < $counter; $i++) {
+                $result .= "<li>" . $this->success[$i] . "</li>";
+            }
+            $result .= "</ul>";
+        } else {
+            $result = "Try again";
+        }
+        return $result;
     }
 }

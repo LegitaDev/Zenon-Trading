@@ -28,12 +28,12 @@
             $login = $user->login($username, $password);
 
             if ($login == false) {
-                $user->displayError();
+                echo $user->displayError();
             } else {
                 header("Location: mainpage.php?id=" . $_SESSION["id"]);
             }
         } else {
-            $user->displayError();
+            echo $user->displayError();
         }
     }
 
