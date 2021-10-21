@@ -15,8 +15,8 @@
     <div class="footer-icons">
         <a href="https://www.google.com" class="footer-icon" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.google.com" class="footer-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
-        <a href="https://www.google.com" class="footer-icon" target="_blank"><i class="fab fa-discord"></i></a>
-        <a href="https://www.google.com" class="footer-icon" target="_blank"><i class="fab fa-github-square"></i></a>
+        <a href="https://discord.gg/cxkHjhVf3V" class="footer-icon" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/LegitaDev" class="footer-icon" target="_blank"><i class="fab fa-github-square"></i></a>
     </div>
     <p class="copyright">
         copyright &copy; Zenon Trading Company <?php echo date("Y"); ?>. All rights reserved.

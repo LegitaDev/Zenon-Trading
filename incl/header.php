@@ -12,10 +12,15 @@ if (isset($_SESSION["id"])) {
     $user = new User();
 
     $usernameShow = $user->getUsername($_SESSION["id"]);
+    $adm = $user->checkAdmin($_SESSION["id"]);
 } else {
     $logIN = false;
 }
 
+// Check if the user is ADMIN
+
+
+// if logout clicked
 if (isset($_GET["logout"])) {
     if (isset($_SESSION["id"])) {
         session_destroy();
@@ -54,22 +59,28 @@ if (isset($_GET["logout"])) {
             <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
             <a href="https://discord.gg/cxkHjhVf3V" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
             <a href="https://github.com/LegitaDev" class="nav-icon" target="_blank"><i class="fab fa-github-square"></i></a>
-
-
         </div>
         <?php
-        if ($logIN == false) {
-            echo "
-        <div class=\"nav-links\">
-            <a href=\"login.php\" class=\"nav-link nav-log\">Login</a>
-            <a href=\"register.php\" class=\"nav-link nav-log\">Register</a>
-        </div>
-        ";
-        } else {
+        if ($logIN) {
             echo "
             <div class=\"nav-links\">
                 <a href=\"profile.php\" class=\"nav-link nav-log\">" . $usernameShow . "</a>
                 <a href=\"mainpage.php?logout\" class=\"nav-link nav-log\">Logout</a>
+            </div>
+            ";
+            if ($adm == 1) {
+                echo "
+            <div class=\"nav-links\">
+                <a href=\"adminPage.php\" class=\"nav-link nav-log\">AdminPage</a>
+                <a href=\"mainpage.php\" class=\"nav-link nav-log\">Users</a>
+            </div>
+            ";
+            }
+        } else {
+            echo "
+            <div class=\"nav-links\">
+                <a href=\"login.php\" class=\"nav-link nav-log\">Login</a>
+                <a href=\"register.php\" class=\"nav-link nav-log\">Register</a>
             </div>
             ";
         }

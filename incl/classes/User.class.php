@@ -34,6 +34,28 @@ class User
         }
     }
 
+
+
+    // Register
+    function register($username, $email, $password)
+    {
+        $query = "INSERT INTO users(username,email,password) ";
+        $query .= "VALUES(:username, :email, :password)";
+
+        $this->database->prepare($query);
+        $this->database->bind(":username", $username);
+        $this->database->bind(":email", $email);
+        $this->database->bind(":password", $password);
+
+        if ($this->database->execute()) {
+            $this->success[] = "User has been created.";
+            return true;
+        } else {
+            $this->error[] = "Please contact an Admin.";
+            return false;
+        }
+    }
+
     // Gets Username
     function getUsername($id)
     {
@@ -51,21 +73,19 @@ class User
         }
     }
 
-    function register($username, $email, $password)
+    // Check Admin
+    function checkAdmin($id)
     {
-        $query = "INSERT INTO users(username,email,password) ";
-        $query .= "VALUES(:username, :email, :password)";
-
+        $query = "SELECT * ";
+        $query .= "FROM users ";
+        $query .= "WHERE id = :id";
         $this->database->prepare($query);
-        $this->database->bind(":username", $username);
-        $this->database->bind(":email", $email);
-        $this->database->bind(":password", $password);
+        $this->database->bind(":id", $id);
+        $row = $this->database->getRow();
 
-        if ($this->database->execute()) {
-            $this->success[] = "User has been created.";
-            return true;
+        if ($this->database->rowCount() > 0) {
+            return $row->admin;
         } else {
-            $this->error[] = "Please contact an Admin.";
             return false;
         }
     }
