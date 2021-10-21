@@ -2,10 +2,27 @@
 include_once "config/config.php";
 
 spl_autoload_register(function ($class) {
-    require_once ("./incl/classes/" . $class . ".class.php");
+    require_once("./incl/classes/" . $class . ".class.php");
 });
 
 session_start();
+
+if (isset($_SESSION["id"])) {
+    $logIN = true;
+    $user = new User();
+
+    $usernameShow = $user->getUsername($_SESSION["id"]);
+} else {
+    $logIN = false;
+}
+
+if (isset($_GET["logout"])) {
+    if (isset($_SESSION["id"])) {
+        session_destroy();
+        header("Location: mainpage.php?loggedout");
+    }
+}
+
 ?>
 
 <link rel="stylesheet" href="<?php echo URLROOT; ?>assests/css/bootstrap.min.css">
@@ -14,6 +31,7 @@ session_start();
 
 
 <!-- NAVBAR -->
+
 <nav class="main-navbar">
     <div class="nav-center">
         <div class="nav-header">
@@ -34,14 +52,27 @@ session_start();
         <div class="nav-icons">
             <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
-            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
-            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-github-square"></i></a>
+            <a href="https://discord.gg/cxkHjhVf3V" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/LegitaDev" class="nav-icon" target="_blank"><i class="fab fa-github-square"></i></a>
 
 
         </div>
-        <div class="nav-links">
-            <a href="login.php" class="nav-link nav-log">Login</a>
-            <a href="register.php" class="nav-link nav-log">Register</a>
+        <?php
+        if ($logIN == false) {
+            echo "
+        <div class=\"nav-links\">
+            <a href=\"login.php\" class=\"nav-link nav-log\">Login</a>
+            <a href=\"register.php\" class=\"nav-link nav-log\">Register</a>
         </div>
+        ";
+        } else {
+            echo "
+            <div class=\"nav-links\">
+                <a href=\"profile.php\" class=\"nav-link nav-log\">" . $usernameShow . "</a>
+                <a href=\"mainpage.php?logout\" class=\"nav-link nav-log\">Logout</a>
+            </div>
+            ";
+        }
+        ?>
     </div>
 </nav>

@@ -28,9 +28,26 @@ class User
 
                 return true;
             } else {
-                $this->errors[] = "User not found";
+                $this->errors[] = "User or Password is incorrect.";
                 return false;
             }
+        }
+    }
+
+    // Gets Username
+    function getUsername($id)
+    {
+        $query = "SELECT * ";
+        $query .= "FROM users ";
+        $query .= "WHERE id = :id";
+        $this->database->prepare($query);
+        $this->database->bind(":id", $id);
+        $row = $this->database->getRow();
+
+        if ($this->database->rowCount() > 0) {
+            return $row->username;
+        } else {
+            return false;
         }
     }
 

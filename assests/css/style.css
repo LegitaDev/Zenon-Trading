@@ -21,6 +21,15 @@
     color: var(--secondaryColor);
 }
 
+.main-div {
+    height: calc(100vh - 108px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../images/mainDivBackground.jpg") center/cover fixed no-repeat;
+    font-size: 5rem;
+}
+
 
 /* BUTTONS */
 
@@ -434,6 +443,6 @@ a {
 }
 
 .main-form .second-form .btn-black {
-    margin-left: auto;
+    margin-left: 2em;
     margin-top: 2rem;
 }
