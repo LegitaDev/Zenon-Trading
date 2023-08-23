@@ -17,8 +17,6 @@ if (isset($_SESSION["id"])) {
     $logIN = false;
 }
 
-// Check if the user is ADMIN
-
 
 // if logout clicked
 if (isset($_GET["logout"])) {
@@ -55,9 +53,9 @@ if (isset($_GET["logout"])) {
 
         </div>
         <div class="nav-icons">
-            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.google.com" class="nav-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
-            <a href="https://discord.gg/cxkHjhVf3V" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="#" class="nav-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="nav-icon" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" class="nav-icon" target="_blank"><i class="fab fa-discord"></i></a>
             <a href="https://github.com/LegitaDev" class="nav-icon" target="_blank"><i class="fab fa-github-square"></i></a>
         </div>
         <?php
